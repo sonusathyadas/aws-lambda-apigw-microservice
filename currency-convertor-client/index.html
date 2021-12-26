@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Currency convertor API</title>
+</head>
+<body>
+        <table border="1">
+            <tr>
+                <th colspan="2">Currency Convertor</th>
+            </tr>
+            <tr>
+                <th>Base Currency code</th>
+                <td><input type="text" name="txt1" id="txt1" placeholder="Base currency" /> </td>
+            </tr>
+            <tr>
+                <th>Output Currency code</th>
+                <td><input type="text" name="txt2" id="txt2" placeholder="Output currency" /> </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button id="btn" type="button" onclick="getData()">Get Value</button>
+                </th>
+            </tr>
+        </table>
+    <script>
+        function getData(){
+            let base = $("#txt1").val()
+            let output = $("#txt2").val()
+            $.ajax({
+                url:`https://a5gk5sdon8.execute-api.us-east-1.amazonaws.com/currency?base=${base}&output=${output}`,
+                method:'GET',
+                success:function(res){
+                    console.log(res)
+                    alert(res);
+                },
+                error:function(err){
+                    console.log(err)
+                    alert(err)
+                }
+            })
+        }
+    </script>
+</body>
+</html>

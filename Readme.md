@@ -100,6 +100,14 @@ This tutorial will guide you through the steps to build a simple HTTP API micros
     https://a5gk5sdon8.execute-api.us-east-1.amazonaws.com/currency?base=USD&output=INR
     ```
 
-
+## Configure CORS policy for Currency Converter API
+1) Open the API gateway console and select the `Currecny-Convertor-API` to navigate to the API dashboard.
+2) Select `CORS` option from the `Develop` section on the left side navigation bar.
+3) In the `Cross-Origin Resource Sharing` page, click on the `Configure` button. This will open the CORS policy editor.
+4) Type the domain url of consumer applications in the `Access-Control-Allow-Origin` text box and click `Add` button. You can add more domains by typing and clicking on add button. To allow requests from all domains specify `*` for the domain value.
+5) For `Access-Control-Allow-Headers`, specify `*` as the value and click `Add` button.
+6) For `Access-Control-Allow-Methods`, specify `GET` method and click on `Add` button.
+7) Other values you can leave as default and click on the `Save` button.
+    ![Image 4](./images/image4.png)
 
 
